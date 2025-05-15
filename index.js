@@ -38,7 +38,11 @@ const storage=multer.diskStorage({
 const upload=multer({storage:storage})
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://mylibrary-cbg.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true
+}));
 app.use('/uploads',express.static(path.join(__dirname,'uploads')))
 //publisher routes
 app.post('/addPublisher',AddPublisher)
