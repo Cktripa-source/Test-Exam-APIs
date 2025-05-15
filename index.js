@@ -39,7 +39,7 @@ const upload=multer({storage:storage})
 
 app.use(express.json());
 app.use(cors({
-  origin: 'https://mylibrary-cbg.vercel.app',
+  origin: 'https://mylibrary-cbg.vercel.app', // ✅ Exact domain, not wildcard
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true
 }));
